@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DRESSAGE Pictures — Independent Production Banner</title>
+<meta name="description" content="DRESSAGE Pictures is an independent production banner built around character-first storytelling — elevated genre films, prestige true-story dramas, and grounded thrillers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <!--
+    HERO VIDEO — alternates back and forth between two graded, muted clips
+    (face/neck close-up, then hoof/legwork close-up), each heavily graded to
+    match (teal shadows / warm highlights, boosted contrast, vignette, film
+    grain, cinematic crop). Free-licensed Pexels footage, no watermark.
+    A wider arena/establishing shot is also available at
+    assets/video/hero-dressage.mp4 if you'd rather swap it into the rotation.
+  -->
+  <video class="hero-media" id="hero-video" autoplay muted playsinline webkit-playsinline="true" disablepictureinpicture disableremoteplayback preload="auto" poster="assets/hero-fallback.jpg" src="assets/video/hero-dressage-closeup.mp4"></video>
+  <div class="hero-scrim"></div>
+
+  <nav class="site-nav" style="justify-content:flex-end;">
+    <nav>
+      <a href="philosophy.html" class="navlink">Philosophy</a>
+      <a href="slate.html" class="navlink">Slate</a>
+      <a href="contact.html" class="navlink">Contact</a>
+    </nav>
+  </nav>
+
+  <div class="hero-content">
+    <img class="hero-logo" src="assets/dressage-logo.png" alt="DRESSAGE Pictures">
+    <p class="lede">Character-first films and television, produced with the same discipline and precision the name implies.</p>
+    <div class="hero-cta">
+      <a class="btn" href="slate.html">View the Slate</a>
+      <a class="slate-peek-inline" id="slate-peek-link" href="slate.html">
+        <img class="peek-poster" id="slate-peek-img" src="" alt="">
+        <span class="peek-text">
+          <span class="peek-label">From the Slate</span>
+          <span class="peek-title" id="slate-peek-title"></span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-cue">Scroll</div>
+</header>
+
+<section class="section about-strip">
+  <div>
+    <div class="eyebrow">About</div>
+    <h2 style="font-weight:700; text-transform:uppercase; font-size:clamp(1.9rem,4vw,2.5rem); line-height:1.1; margin-bottom:22px;">Discipline and Vision</h2>
+  </div>
+  <div>
+    <p>DRESSAGE Pictures is an independent production banner built around character-first storytelling — elevated genre films, prestige true-story dramas, and grounded thrillers that earn their scale through character rather than spectacle. The banner develops and produces its own slate while partnering project-to-project with outside producers and financiers, from GRID Productions to Circle Entertainment.</p>
+    <p>Founded and run in equal partnership by John Henning and Johnny Lamm, DRESSAGE Pictures is hands-on across the life of a project: development, packaging, and — on titles like <em>Tourists</em> and <em>Hiker</em> — production itself.</p>
+    <a class="section-foot-link" href="philosophy.html">Read our philosophy →</a>
+  </div>
+</section>
+
+<script>
+(function(){
+  var titles = [
+    {slug:"tourists", title:"Tourists", poster:"posters/tourists.jpg"},
+    {slug:"hiker", title:"Hiker", poster:"posters/hiker.jpg"},
+    {slug:"the-hidden", title:"The Hidden", poster:"posters/the-hidden.jpg"},
+    {slug:"thirty-mile-zone", title:"Thirty Mile Zone", poster:"posters/thirty-mile-zone.jpg"},
+    {slug:"attached", title:"Attached", poster:"posters/attached.jpg"},
+    {slug:"carry-okay", title:"Carry, Okay!", poster:"posters/carry-okay.jpg"},
+    {slug:"the-artist", title:"The Artist", poster:"posters/the-artist.jpg"},
+    {slug:"sucked-in", title:"Sucked In", poster:"posters/sucked-in.jpg"},
+    {slug:"firecracker", title:"Firecracker", poster:"posters/firecracker.jpg"},
+    {slug:"elder", title:"Elder", poster:"posters/elder.jpg"},
+    {slug:"under-water", title:"Under Water", poster:"posters/under-water.jpg"},
+    {slug:"tunnels", title:"Tunnels", poster:"posters/tunnels.jpg"},
+    {slug:"the-first-lady", title:"The First Lady", poster:"posters/the-first-lady.jpg"},
+    {slug:"dreamliner", title:"Dreamliner", poster:"posters/dreamliner.jpg"},
+    {slug:"no-slaves-of-men", title:"No Slaves of Men", poster:"posters/no-slaves-of-men.jpg"},
+    {slug:"hank-goes-to-hollywood", title:"Hank Goes to Hollywood", poster:"posters/hank-goes-to-hollywood.jpg"}
+  ];
+  var pick = titles[Math.floor(Math.random() * titles.length)];
+  var link = document.getElementById("slate-peek-link");
+  var img = document.getElementById("slate-peek-img");
+  var titleEl = document.getElementById("slate-peek-title");
+  if(link && img && titleEl){
+    link.href = "slate.html#" + pick.slug;
+    img.src = pick.poster;
+    img.alt = pick.title + " poster";
+    titleEl.textContent = pick.title;
+  }
+})();
+
+(function(){
+  // Hero video: alternate back and forth between the two graded clips,
+  // starting on a random one each time the page loads. Muted + playsinline
+  // so it autoplays inline on iOS/Android; if a mobile browser still blocks
+  // autoplay (low-power mode, data saver, etc.) we retry on first touch/tap.
+  var heroSources = [
+    "assets/video/hero-dressage-closeup.mp4",
+    "assets/video/hero-dressage-hooves.mp4"
+  ];
+  var heroIndex = Math.floor(Math.random() * heroSources.length);
+  var v = document.getElementById("hero-video");
+  if(v){
+    v.src = heroSources[heroIndex];
+    v.load();
+
+    var tryPlay = function(){
+      var p = v.play();
+      if(p && typeof p.catch === "function"){
+        p.catch(function(){ /* retried below on user gesture */ });
+      }
+    };
+    tryPlay();
+
+    var resumeOnGesture = function(){
+      if(v.paused){ tryPlay(); }
+      document.removeEventListener("touchstart", resumeOnGesture);
+      document.removeEventListener("click", resumeOnGesture);
+    };
+    document.addEventListener("touchstart", resumeOnGesture, {passive:true});
+    document.addEventListener("click", resumeOnGesture);
+
+    v.addEventListener("ended", function(){
+      heroIndex = (heroIndex + 1) % heroSources.length;
+      v.src = heroSources[heroIndex];
+      tryPlay();
+    });
+  }
+})();
+</script>
+
+<hr class="hr">
+
+<section class="section">
+  <div class="section-head" style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:24px;">
+    <div>
+      <h2>From the Slate</h2>
+    </div>
+    <a class="section-foot-link" style="margin-top:0;" href="slate.html">View full slate →</a>
+  </div>
+
+  <div class="grouplabel">Fully Packaged, Seeking Financing</div>
+  <div class="feature-grid" style="margin-bottom:48px;">
+
+    <div class="title-card">
+      <img class="poster" src="posters/tourists.jpg" alt="Tourists poster">
+      <div class="body">
+        <div class="top">
+          <h3>Tourists</h3>
+          <span class="fmt">Feature</span>
+        </div>
+        <div><span class="tag tag-prod">Packaged</span></div>
+        <div class="budget"><span class="budget-label">Budget</span>$750K</div>
+        <p class="logline">Stranded in Berlin after chasing the wrong romance, an anxious American falls for a fiercely independent street musician.</p>
+      </div>
+    </div>
+
+    <div class="title-card">
+      <img class="poster" src="posters/hiker.jpg" alt="Hiker poster">
+      <div class="body">
+        <div class="top">
+          <h3>Hiker</h3>
+          <span class="fmt">Feature</span>
+        </div>
+        <div><span class="tag tag-prod">Packaged</span></div>
+        <div class="budget"><span class="budget-label">Budget</span>$750K</div>
+        <p class="logline">A solo wilderness hike to outrun her own anxiety turns deadly when something starts hunting her.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="grouplabel">Packaging with Directors</div>
+  <div class="feature-grid">
+
+    <div class="title-card">
+      <img class="poster" src="posters/the-hidden.jpg" alt="The Hidden poster">
+      <div class="body">
+        <div class="top">
+          <h3>The Hidden</h3>
+          <span class="fmt">Feature</span>
+        </div>
+        <div><span class="tag tag-prod">Packaging</span></div>
+        <div class="budget"><span class="budget-label">Budget</span>$1.5–3M</div>
+        <p class="logline">A skeptical mother confronts a childlike presence stalking her son in her husband's ancestral Vietnam home.</p>
+      </div>
+    </div>
+
+    <div class="title-card">
+      <img class="poster" src="posters/thirty-mile-zone.jpg" alt="Thirty Mile Zone poster">
+      <div class="body">
+        <div class="top">
+          <h3>Thirty Mile Zone</h3>
+          <span class="fmt">Feature</span>
+        </div>
+        <div><span class="tag tag-prod">Packaging</span></div>
+        <div class="budget"><span class="budget-label">Budget</span>$4–8M</div>
+        <p class="logline">The untold rise of the closeted lawyer-turned-tabloid kingpin who built the paparazzi machine that redefined celebrity culture.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <span>© 2026 DRESSAGE Pictures</span>
+  <span>dressagepictures.com</span>
+  <a href="#" target="_blank" rel="noopener">Investor Materials</a>
+</footer>
+
+</body>
+</html>
