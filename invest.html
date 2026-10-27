@@ -126,6 +126,31 @@ var SERVICE_ID = "service_1c3tqj7";
 var TEMPLATE_NOTIFY = "template_u1c0aw6";
 var TEMPLATE_AUTOREPLY = "template_nj7dmzr";
 
+// Per-interest-type auto-reply copy. Keys must match the <option value="…">
+// text exactly in the Interest Type select below.
+var REPLY_CONTENT = {
+"Equity Investment": {
+subject: "Thanks for your interest in Dressage Pictures",
+body: "Thanks for your interest in Dressage Pictures.<br><br>Our film fund, Xenith, brings investors into a slate of independent films—and the experience of bringing them to life. From the first day on set to the first step on the red carpet, we’re excited to share that journey with you.<br><br>We’d be happy to arrange a call to talk through the films, answer your questions and share the investment materials. Just reply here and we’ll find a time that works."
+},
+"Co-Production / Financing Partnership": {
+subject: "Thanks for your interest in partnering with Dressage Pictures",
+body: "Thanks for your interest in partnering with Dressage Pictures.<br><br>We’re developing a slate of independent films and welcome conversations with potential co-production and financing partners.<br><br>We’d love to hear more about what you’re working on and where you see an opportunity to collaborate. We’d be happy to arrange a call, discuss the slate and share relevant project materials.<br><br>Just reply here with a little about your interests and availability."
+},
+"Festival / Distribution": {
+subject: "Thanks for getting in touch with Dressage Pictures",
+body: "Thanks for getting in touch with Dressage Pictures.<br><br>We’d love to hear more about your festival or distribution interests and introduce you to the pictures we’re bringing to the screen.<br><br>Let us know which projects caught your attention and any programming or acquisition timelines you’re working toward. We’d be happy to arrange a conversation and share relevant materials."
+},
+"Press / Media": {
+subject: "Your press inquiry — Dressage Pictures",
+body: "Thanks for your interest in covering Dressage Pictures.<br><br>There’s plenty happening behind the scenes, and we’d be happy to help you find the story.<br><br>Please reply with your outlet, what you’re working on and any deadlines. We can discuss interviews, background information and available press materials."
+},
+"Other": {
+subject: "Thanks for reaching out to Dressage Pictures",
+body: "Thanks for reaching out to Dressage Pictures.<br><br>We’d love to hear more about what brought you our way. Reply with a little about yourself and what you have in mind, and we’ll connect you with the right person."
+}
+};
+
 var form = document.getElementById("invest-form");
 var submitBtn = document.getElementById("invest-submit");
 var statusEl = document.getElementById("invest-status");
@@ -138,17 +163,30 @@ submitBtn.textContent = "Sending…";
 statusEl.className = "invest-status";
 statusEl.textContent = "";
 
-var params = {
-from_name: form.from_name.value,
+var fullName = form.from_name.value;
+var firstName = fullName.trim().split(/\s+/)[0] || fullName;
+var interestType = form.interest_type.value;
+var reply = REPLY_CONTENT[interestType] || REPLY_CONTENT["Other"];
+
+var notifyParams = {
+from_name: fullName,
 from_email: form.from_email.value,
 referral_source: form.referral_source.value,
-interest_type: form.interest_type.value,
+interest_type: interestType,
 accredited_status: form.accredited_status.value
 };
 
+var autoreplyParams = {
+from_name: fullName,
+first_name: firstName,
+from_email: form.from_email.value,
+email_subject: reply.subject,
+email_body: reply.body
+};
+
 Promise.all([
-emailjs.send(SERVICE_ID, TEMPLATE_NOTIFY, params),
-emailjs.send(SERVICE_ID, TEMPLATE_AUTOREPLY, params)
+emailjs.send(SERVICE_ID, TEMPLATE_NOTIFY, notifyParams),
+emailjs.send(SERVICE_ID, TEMPLATE_AUTOREPLY, autoreplyParams)
 ]).then(function(){
 form.style.display = "none";
 confirmEl.style.display = "block";
