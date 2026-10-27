@@ -66,6 +66,10 @@ margin-top:20px; font-size:13.5px; line-height:1.6; display:none;
 <section class="section" style="padding-top:44px;">
 
 <form class="invest-form" id="invest-form">
+<div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
+<label for="website">Website</label>
+<input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+</div>
 <div class="field">
 <label for="from_name">Full Name</label>
 <input type="text" id="from_name" name="from_name" required>
@@ -174,6 +178,15 @@ accreditedSelectEl.value = "";
 
 form.addEventListener("submit", function(e){
 e.preventDefault();
+
+// Honeypot: a real visitor never sees or fills this field in. If it has a
+// value, this is a bot — pretend success and stop, without sending anything.
+if (form.website.value) {
+form.style.display = "none";
+confirmEl.style.display = "block";
+return;
+}
+
 submitBtn.disabled = true;
 submitBtn.textContent = "Sending…";
 statusEl.className = "invest-status";
