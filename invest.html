@@ -89,9 +89,9 @@ margin-top:20px; font-size:13.5px; line-height:1.6; display:none;
 <option value="Other">Other</option>
 </select>
 </div>
-<div class="field">
+<div class="field" id="accredited-field" hidden>
 <label for="accredited_status">Accredited Investor Status</label>
-<select id="accredited_status" name="accredited_status" required>
+<select id="accredited_status" name="accredited_status">
 <option value="" disabled selected>Select one</option>
 <option value="Yes — I am an accredited investor">Yes — I am an accredited investor</option>
 <option value="No">No</option>
@@ -155,6 +155,22 @@ var form = document.getElementById("invest-form");
 var submitBtn = document.getElementById("invest-submit");
 var statusEl = document.getElementById("invest-status");
 var confirmEl = document.getElementById("invest-confirm");
+var interestTypeEl = document.getElementById("interest_type");
+var accreditedFieldEl = document.getElementById("accredited-field");
+var accreditedSelectEl = document.getElementById("accredited_status");
+
+// Accredited Investor Status only applies to equity investment inquiries —
+// show it only when that interest type is selected.
+interestTypeEl.addEventListener("change", function(){
+if (interestTypeEl.value === "Equity Investment") {
+accreditedFieldEl.hidden = false;
+accreditedSelectEl.required = true;
+} else {
+accreditedFieldEl.hidden = true;
+accreditedSelectEl.required = false;
+accreditedSelectEl.value = "";
+}
+});
 
 form.addEventListener("submit", function(e){
 e.preventDefault();
@@ -173,7 +189,7 @@ from_name: fullName,
 from_email: form.from_email.value,
 referral_source: form.referral_source.value,
 interest_type: interestType,
-accredited_status: form.accredited_status.value
+accredited_status: form.accredited_status.value || "N/A"
 };
 
 var autoreplyParams = {
