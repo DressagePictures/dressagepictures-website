@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>John Henning — DRESSAGE Pictures</title>
+<meta name="description" content="John Henning, Managing Partner at DRESSAGE Pictures. Direct contact, slate, and investor materials.">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Home Screen app behaviour -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="John Henning">
+<meta name="theme-color" content="#050B1A">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="manifest" href="card.webmanifest">
+
+<!-- Link preview when the card is texted or emailed -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="John Henning — DRESSAGE Pictures">
+<meta property="og:description" content="Managing Partner. Character-first films and television.">
+<link rel="canonical" href="https://dressagepictures.com/card-henning">
+<meta property="og:url" content="https://dressagepictures.com/card-henning">
+<meta property="og:image" content="https://dressagepictures.com/assets/dressage-logo.png">
+<meta name="twitter:card" content="summary">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+
+<style>
+  :root {
+    --ink:   #050B1A;
+    --panel: #0A1224;
+    --paper: #F5F4F0;
+    --gold:  #EABB54;
+    --muted: #8E99AE;
+    --line:  rgba(245, 244, 240, 0.14);
+    --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans:  Arial, Helvetica, "Helvetica Neue", sans-serif;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+
+  /* a display rule on a component otherwise beats the hidden attribute */
+  [hidden] { display: none !important; }
+
+  html, body { margin: 0; min-height: 100%; }
+
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  img { max-width: 100%; }
+
+  .ground {
+    min-height: 100vh;
+    min-height: 100svh;
+    background:
+      radial-gradient(130% 90% at 50% 0%, rgba(234, 187, 84, 0.10) 0%, rgba(234, 187, 84, 0) 55%),
+      radial-gradient(100% 70% at 50% 100%, rgba(10, 18, 36, 0.9) 0%, rgba(5, 11, 26, 0) 70%);
+    display: flex;
+    justify-content: center;
+    padding-top: calc(clamp(28px, 6vw, 64px) + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(clamp(28px, 6vw, 64px) + env(safe-area-inset-bottom, 0px));
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  .card {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(26px, 5vw, 36px);
+  }
+
+  /* ---- wordmark ---- */
+  .mark { display: flex; flex-direction: column; align-items: center; }
+  .mark img { width: min(280px, 72%); height: auto; display: block; }
+
+  .mark-text { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .mark-text[hidden] { display: none; }
+  .mark-name {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(38px, 11.5vw, 56px); line-height: 0.92;
+    letter-spacing: 0.055em; text-indent: 0.055em; margin: 0;
+  }
+  .mark-sub { display: flex; align-items: center; gap: 12px; width: 100%; max-width: 290px; }
+  .mark-sub::before, .mark-sub::after {
+    content: ""; flex: 1 1 auto; height: 1px; background: var(--paper); opacity: 0.85;
+  }
+  .mark-sub span {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(13px, 3.4vw, 16px);
+    letter-spacing: 0.42em; text-indent: 0.42em; white-space: nowrap;
+  }
+
+  /* ---- identity ---- */
+  .who { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+  .rule-gold { width: 46px; height: 2px; background: var(--gold); }
+  .who h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(34px, 9.5vw, 46px); line-height: 1.05;
+    letter-spacing: 0.012em; margin: 0; text-wrap: balance;
+  }
+  .role {
+    font-size: 11px; letter-spacing: 0.26em; text-indent: 0.26em;
+    text-transform: uppercase; color: var(--gold); margin: 0;
+  }
+  .creds { font-size: 13px; line-height: 1.6; color: var(--muted); margin: 0; max-width: 34ch; }
+
+  /* ---- contact ---- */
+  .contact {
+    background: var(--panel); border: 1px solid var(--line); padding: 18px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 20px; flex-wrap: wrap;
+  }
+  .contact-main { display: flex; flex-direction: column; gap: 12px; min-width: 0; flex: 1 1 200px; }
+  .label {
+    font-size: 10px; letter-spacing: 0.24em; text-indent: 0.24em;
+    text-transform: uppercase; color: var(--gold); margin: 0;
+  }
+  .mail-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .mail {
+    font-size: clamp(15px, 4.1vw, 17px); color: var(--paper); text-decoration: none;
+    border-bottom: 1px solid var(--line); padding-bottom: 2px;
+    min-width: 0; overflow-wrap: anywhere;
+  }
+  .mail:hover, .mail:focus-visible { border-bottom-color: var(--gold); color: var(--gold); }
+  .copy {
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.18em; text-indent: 0.18em; text-transform: uppercase;
+    color: var(--muted); background: transparent; border: 1px solid var(--line);
+    padding: 7px 12px; cursor: pointer; white-space: nowrap;
+    transition: color .18s ease, border-color .18s ease;
+  }
+  .copy:hover, .copy:focus-visible, .copy[data-done="1"] { color: var(--gold); border-color: var(--gold); }
+
+  .qr-wrap { display: flex; flex-direction: column; align-items: center; gap: 9px; flex: 0 0 auto; }
+  .qr { background: var(--paper); padding: 7px; width: 100px; height: 100px; }
+  .qr svg { display: block; width: 100%; height: 100%; }
+  .qr svg rect { fill: var(--paper); }
+  .qr svg path { fill: var(--ink); }
+  .qr-cap {
+    font-size: 9px; letter-spacing: 0.2em; text-indent: 0.2em;
+    text-transform: uppercase; color: var(--muted); margin: 0; white-space: nowrap;
+  }
+
+  /* ---- links ---- */
+  .groups { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+  @media (max-width: 430px) { .groups { grid-template-columns: 1fr; gap: 24px; } }
+  .group { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+  .links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+  .links a {
+    color: var(--paper); text-decoration: none; font-size: 14px; line-height: 1.35;
+    display: inline-flex; align-items: baseline; gap: 7px; transition: color .18s ease;
+  }
+  .links a::after { content: "\2192"; color: var(--muted); font-size: 12px; transition: color .18s ease, transform .18s ease; }
+  .links a:hover, .links a:focus-visible { color: var(--gold); }
+  .links a:hover::after, .links a:focus-visible::after { color: var(--gold); transform: translateX(2px); }
+
+  /* ---- footer ---- */
+  .foot { border-top: 1px solid var(--line); padding-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+  .tag {
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(15px, 4vw, 17px); line-height: 1.45;
+    color: var(--paper); opacity: 0.9; margin: 0; text-wrap: balance;
+  }
+  .fine { font-size: 11px; letter-spacing: 0.1em; color: var(--muted); margin: 0; }
+
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .card > * { animation: rise .7s cubic-bezier(.22,.7,.3,1) both; }
+    .card > *:nth-child(2) { animation-delay: .07s; }
+    .card > *:nth-child(3) { animation-delay: .13s; }
+    .card > *:nth-child(4) { animation-delay: .19s; }
+    .card > *:nth-child(5) { animation-delay: .25s; }
+    @keyframes rise { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: none; } }
+  }
+</style>
+</head>
+<body>
+
+<div class="ground">
+  <div class="card">
+
+    <div class="mark">
+      <img id="markImg" src="/assets/dressage-logo.png" alt="DRESSAGE Pictures">
+      <div class="mark-text" id="markText" hidden>
+        <p class="mark-name">DRESSAGE</p>
+        <div class="mark-sub"><span>PICTURES</span></div>
+      </div>
+    </div>
+
+    <div class="who">
+      <div class="rule-gold"></div>
+      <h1>John Henning</h1>
+      <p class="role">Managing Partner</p>
+      <p class="creds">Co-founder of DRESSAGE Pictures, overseeing operations and finance across the slate.</p>
+    </div>
+
+    <div class="contact">
+      <div class="contact-main">
+        <p class="label">Direct</p>
+        <div class="mail-row">
+          <a class="mail" id="mail" href="mailto:jh@dressagepictures.com">jh@dressagepictures.com</a>
+          <button class="copy" id="copyBtn" type="button">Copy</button>
+        </div>
+        <div class="mail-row">
+          <a class="mail" id="phone" href="tel:+14153107008">(415) 310-7008</a>
+          <button class="copy" id="copyPhoneBtn" type="button">Copy</button>
+        </div>
+      </div>
+      <div class="qr-wrap" id="qrWrap" hidden>
+        <div class="qr" id="qr"></div>
+        <p class="qr-cap">Scan to save</p>
+      </div>
+    </div>
+
+    <div class="groups">
+      <div class="group">
+        <p class="label">Dressage</p>
+        <ul class="links">
+          <li><a href="https://dressagepictures.com">dressagepictures.com</a></li>
+          <li><a href="https://dressagepictures.com/slate.html">The Slate</a></li>
+          <li><a href="https://dressagepictures.com/invest.html">Investor Materials</a></li>
+          <li><a href="https://pro.imdb.com/company/co1218428">IMDb</a></li>
+          <li><a href="https://www.linkedin.com/dressagepictures">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/dressage__pictures/">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="group">
+        <p class="label">John</p>
+        <ul class="links">
+          <li><a href="https://www.instagram.com/johnartiste94/">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot">
+      <p class="tag">Character-first films and television, produced with the same discipline and precision the name implies.</p>
+      <p class="fine">For scripts, packaging, or investment inquiries, reach out directly.</p>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script>
+  /* Logo falls back to type if the image path is ever wrong. */
+  (function () {
+    var img = document.getElementById('markImg');
+    if (!img) return;
+    function fallback() {
+      if (img.parentNode) img.remove();
+      var t = document.getElementById('markText');
+      if (t) t.hidden = false;
+    }
+    img.addEventListener('error', fallback);
+    /* the error may already have fired before this script ran */
+    if (img.complete && img.naturalWidth === 0) fallback();
+  })();
+
+  /* vCard QR — a scan saves the contact, no page load needed. */
+  (function () {
+    var wrap = document.getElementById('qrWrap');
+    var box = document.getElementById('qr');
+    if (!wrap || !box || typeof qrcode !== 'function') return;
+    var vcard = [
+      'BEGIN:VCARD',
+      'VERSION:3.0',
+      'N:Henning;John;;;',
+      'FN:John Henning',
+      'ORG:DRESSAGE Pictures',
+      'TITLE:Managing Partner',
+      'EMAIL;TYPE=INTERNET,WORK:jh@dressagepictures.com',
+      'TEL;TYPE=CELL:+14153107008',
+      'URL:https://dressagepictures.com',
+      'END:VCARD'
+    ].join('\r\n');
+    try {
+      var qr = qrcode(0, 'M');
+      qr.addData(vcard);
+      qr.make();
+      box.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+      wrap.hidden = false;
+    } catch (e) { wrap.hidden = true; }
+  })();
+
+  /* Copy email / phone — same pattern, wired to each row's button. */
+  (function () {
+    function wireCopy(btnId, textEl, address) {
+      var btn = document.getElementById(btnId);
+      if (!btn || !textEl) return;
+      var timer;
+      function flash(text) {
+        btn.textContent = text;
+        btn.setAttribute('data-done', '1');
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          btn.textContent = 'Copy';
+          btn.removeAttribute('data-done');
+        }, 2000);
+      }
+      function selectText() {
+        try {
+          var r = document.createRange();
+          r.selectNodeContents(textEl);
+          var s = window.getSelection();
+          s.removeAllRanges();
+          s.addRange(r);
+          flash('Select + copy');
+        } catch (e) { flash('Copy manually'); }
+      }
+      btn.addEventListener('click', function () {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(address).then(function () { flash('Copied'); }).catch(selectText);
+        } else { selectText(); }
+      });
+    }
+    wireCopy('copyBtn', document.getElementById('mail'), 'jh@dressagepictures.com');
+    wireCopy('copyPhoneBtn', document.getElementById('phone'), '(415) 310-7008');
+  })();
+</script>
+</body>
+</html>
