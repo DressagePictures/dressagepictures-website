@@ -115,6 +115,16 @@
   }
   .fact .value { font-size: 14.5px; line-height: 1.5; color: var(--paper); margin: 0; }
 
+  .budget-rows { display: flex; flex-direction: column; gap: 7px; }
+  .budget-row {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 14px;
+    font-size: 13px; color: var(--muted);
+  }
+  .budget-row .b-amt { color: var(--paper); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .budget-row.net { border-top: 1px solid var(--line); padding-top: 7px; margin-top: 1px; }
+  .budget-row.net .b-label { color: var(--paper); }
+  .budget-row.net .b-amt { color: var(--gold); font-weight: 600; }
+
   .director { display: flex; gap: 30px; flex-wrap: wrap; margin-bottom: 44px; }
   .director .col-poster { flex: 0 0 104px; }
   .director .col-poster img {
@@ -207,7 +217,11 @@
   <div class="facts">
     <div class="fact">
       <p class="label">Budget</p>
-      <p class="value">$9M</p>
+      <div class="budget-rows">
+        <div class="budget-row"><span class="b-label">Est. Gross Production Budget</span><span class="b-amt">$9M</span></div>
+        <div class="budget-row"><span class="b-label">Est. Soft Money</span><span class="b-amt">&minus;$2M</span></div>
+        <div class="budget-row net"><span class="b-label">Est. Net Budget</span><span class="b-amt">$7M</span></div>
+      </div>
     </div>
     <div class="fact">
       <p class="label">Produced By</p>
