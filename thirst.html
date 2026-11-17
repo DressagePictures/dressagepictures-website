@@ -135,6 +135,18 @@
     font-family: var(--serif); font-style: italic; font-weight: 600; color: var(--gold);
   }
 
+  .cast-block { border-top: 1px solid var(--line); padding-top: 24px; margin-bottom: 44px; }
+  .cast-block .label {
+    font-size: 9.5px; letter-spacing: 0.2em; text-indent: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin: 0 0 16px;
+  }
+  .cast-list { display: flex; flex-wrap: wrap; gap: 24px 40px; }
+  .cast-item { flex: 1 1 260px; }
+  .cast-item .who {
+    font-family: var(--serif); font-weight: 600; font-size: 18px; color: var(--paper); margin: 0 0 6px;
+  }
+  .cast-item .names { font-size: 13.5px; line-height: 1.6; color: var(--muted); margin: 0; }
+
   .contacts-block { border-top: 1px solid var(--line); padding-top: 24px; margin-bottom: 28px; }
   .contacts-block .label {
     font-size: 9.5px; letter-spacing: 0.2em; text-indent: 0.2em; text-transform: uppercase;
@@ -218,6 +230,20 @@
     <div class="col-body">
       <p>Dan Madison Savage's debut feature, <em>Them That Follow</em>, premiered at the 2019 Sundance Film Festival.</p>
       <p class="credits-line">It starred <strong>Olivia Colman</strong>, <strong>Alice Englert</strong>, <strong>Lewis Pullman</strong>, <strong>Kaitlyn Dever</strong>, <strong>Thomas Mann</strong>, <strong>Walton Goggins</strong>, and <strong>Jim Gaffigan</strong>, and was released theatrically by <span class="dist">1091 Media</span> and <span class="dist">Sony Pictures International</span>.</p>
+    </div>
+  </div>
+
+  <div class="cast-block">
+    <p class="label">Potential Cast</p>
+    <div class="cast-list">
+      <div class="cast-item">
+        <p class="who">Aaron</p>
+        <p class="names">Andrew Garfield, Robert Pattinson, Paul Mescal, Lewis Pullman, Jacob Elordi, Harris Dickinson</p>
+      </div>
+      <div class="cast-item">
+        <p class="who">Liza</p>
+        <p class="names">Charli XCX, Zoey Deutch, Marisa Abela</p>
+      </div>
     </div>
   </div>
 
