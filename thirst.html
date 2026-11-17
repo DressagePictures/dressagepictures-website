@@ -53,14 +53,14 @@
     text-transform: uppercase; color: var(--gold); margin: 0 0 14px;
   }
   .credit-row {
-    display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
-    gap: 16px; margin-bottom: 36px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 10px; margin-bottom: 36px;
   }
   .credit-row .co, .credit-row .fellow {
     font-family: var(--serif); font-weight: 700; letter-spacing: 0.02em;
-    font-size: clamp(19px, 4vw, 26px); color: var(--paper);
+    font-size: clamp(19px, 4vw, 26px); color: var(--paper); line-height: 1.2;
   }
-  .credit-row .divider { width: 1px; height: 26px; background: var(--line); }
+  .credit-row .divider { width: 28px; height: 1px; background: var(--line); }
 
   .titleblock { text-align: center; margin-bottom: 26px; }
   .rule-gold { width: 54px; height: 2px; background: var(--gold); margin: 0 auto 18px; }
@@ -157,8 +157,6 @@
   @media (max-width: 480px) {
     .foot { justify-content: flex-start; }
     .foot .contacts-foot { text-align: left; }
-    .credit-row .divider { display: none; }
-    .credit-row { gap: 6px 0; }
   }
 </style>
 </head>
