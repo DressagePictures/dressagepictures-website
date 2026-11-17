@@ -125,12 +125,12 @@
   .budget-row.net .b-label { color: var(--paper); }
   .budget-row.net .b-amt { color: var(--gold); font-weight: 600; }
 
-  .director { display: flex; gap: 30px; flex-wrap: wrap; margin-bottom: 44px; }
+  .director { display: flex; flex-direction: column; gap: 18px; margin-bottom: 44px; }
+  .director-row { display: flex; gap: 30px; flex-wrap: wrap; }
   .director .col-poster { flex: 0 0 104px; }
   .director .col-poster img {
     width: 100%; display: block; border-radius: 2px; border: 1px solid var(--line);
   }
-  .director .col-label { flex: 0 0 160px; }
   .director .col-label .label {
     font-size: 9.5px; letter-spacing: 0.2em; text-indent: 0.2em; text-transform: uppercase;
     color: var(--gold); margin: 0 0 9px;
@@ -234,16 +234,18 @@
   </div>
 
   <div class="director">
-    <div class="col-poster">
-      <img src="assets/them-that-follow-poster.jpg" alt="Them That Follow poster">
-    </div>
     <div class="col-label">
       <p class="label">The Writer &amp; Director</p>
       <p class="name">Dan Madison Savage</p>
     </div>
+    <div class="director-row">
+    <div class="col-poster">
+      <img src="assets/them-that-follow-poster.jpg" alt="Them That Follow poster">
+    </div>
     <div class="col-body">
       <p>Dan Madison Savage's debut feature, <em>Them That Follow</em>, premiered at the 2019 Sundance Film Festival.</p>
       <p class="credits-line">It starred <strong>Olivia Colman</strong>, <strong>Alice Englert</strong>, <strong>Lewis Pullman</strong>, <strong>Kaitlyn Dever</strong>, <strong>Thomas Mann</strong>, <strong>Walton Goggins</strong>, and <strong>Jim Gaffigan</strong>, and was released theatrically by <span class="dist">1091 Media</span> and <span class="dist">Sony Pictures International</span>.</p>
+    </div>
     </div>
   </div>
 
